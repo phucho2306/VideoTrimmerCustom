@@ -246,7 +246,8 @@ class _TrimEditorState extends State<TrimEditor> with TickerProviderStateMixin {
     widget.trimmer.eventStream.listen((event) {
       if (event == TrimmerEvent.initialized) {
         //The video has been initialized, now we can load stuff
-
+         _startPos = Offset(0, 0);
+         _endPos = Offset(0, 0);
         _initializeVideoController();
         videoPlayerController.seekTo(Duration(milliseconds: 0));
         setState(() {
